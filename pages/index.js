@@ -1,20 +1,24 @@
 import Link from "next/link";
 
 function HomePage() {
+    const client_side = [
+        { id: 'portfotilo', name: 'Portfotilo' },
+        { id: 'clients', name: 'Client' },
+        { id: 'about', name: 'About' },
+    ]
     return (
         <div>
             <h1>
                 The Home Page
             </h1>
             <ul>
-                <li>
-                <Link href="/portfotilo">Portfotilo</Link>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                <Link href="/clients">Client</Link>
-                </li>
+                {client_side.map(side => (
+                    <li key={side.id}>
+                        <Link href={`${side.id}`}>
+                            {side.name}
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </div>
     )
